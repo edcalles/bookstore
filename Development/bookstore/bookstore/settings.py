@@ -126,7 +126,7 @@ STATIC_URL = '/static/'
 # registration
 ACCOUNT_ACTIVATION_DAYS = 7
 REGISTRATION_AUTO_LOGIN = True
-LOGIN_REDIRECT_URL = '/store'
+LOGIN_REDIRECT_URL = '/store/'
 
 SITE_ID = 1
 
