@@ -3,11 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to the Mystery Books store!</title>
+    <title>{{ page|title }}</title>
 </head>
 <body>
     {% block content %}
-    
+    {% if request.user.is_authenticated %}
+        <h4>
+            Welcome, {% if request.user.first_name %}
+            {{ request.user.first_name }}
+            {% else %}
+            {{ request.user.username }}
+            {% endif %}! <a href="{% url 'auth_logout' %}">Log Out</a>
+        </h4>
+    {% else %}
+        <h4>Welcome, mysterious wanderer! Would you like to <a href="{% url 'auth_login' %}">Log In?</a></h4>
+    {% endif %}
+    Welcome to the Mystery Books store! There are {{ count }} books in stock. User location: {{ request.session.location }}
     {% endblock %}
 </body>
 </html>
