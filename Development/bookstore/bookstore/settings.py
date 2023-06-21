@@ -67,9 +67,7 @@ ROOT_URLCONF = 'bookstore.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates'),
-                 os.path.join(BASE_DIR, 'store', 'templates', 'store'),
-                 ],
+        'DIRS': ['C:/Users/delir/bookstore/Development/bookstore/store/templates/store'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
