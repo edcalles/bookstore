@@ -15,3 +15,6 @@ def store(request):
     if request.user.is_authenticated:
         request.session['location'] = "Earth"
     return render(request, 'store.html', context)
+
+def login(request):
+    return render(request, 'login.html')
