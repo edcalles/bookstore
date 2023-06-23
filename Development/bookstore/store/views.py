@@ -51,7 +51,7 @@ def add_to_cart(request, book_id):
                     user=request.user
                 )
                 cart.save()
-            cart.add_to_cart(book_id)
+                cart.add_to_cart(book_id)
         return redirect('cart')
     else:
         return redirect('index')
@@ -71,7 +71,7 @@ def remove_from_cart(request, book_id):
     
 def cart(request):
     if request.user.is_authenticated:
-        cart = Cart.object.filter(user=request.user.id, active=True)[0]
+        cart = Cart.objects.filter(user=request.user.id, active=True)[0]
         orders = BookOrder.objects.filter(cart=cart)
         total = 0
         count = 0
