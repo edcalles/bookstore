@@ -16,6 +16,12 @@ def store(request):
     }
     return render(request, 'store.html', context)
 
+def book_details(request, book_id):
+    context = {
+        'book': Book.objects.get(pk=book_id),
+    }
+    return render(request, 'store/detail.html', context)
+
 def login(request):
     return render(request, 'login.html')
 
