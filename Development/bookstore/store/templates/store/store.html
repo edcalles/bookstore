@@ -43,7 +43,7 @@
             <li class="hvr-curl-top-right"><a href="{% url 'store' %}">Home</a></li>
             <li class="hvr-curl-top-right"><a href="#about">About</a></li>
             <li class="hvr-curl-top-right"><a href="#contact">Contact</a></li>
-            {% if request.user.is_authenticated %}<li class="hvr-curl-top-right"><a href="{% url 'cart' %}">My Shopping Cart</a></li>{% endif %}
+            
           </ul>
           <div class="navbar-form pull-right">
             {% if request.user.is_authenticated %}
@@ -69,15 +69,13 @@
             <div style="text-align:center"><h3>Welcome to our store!</h3></div>
             {% for book in books %}
             <div class="storefront_book_display">
-            <a href="{% url 'book_details' book.id %}">
-              <img src="{{ MEDIA_URL }}{{ book.cover_image }}">
+
+              <img src="{% static 'base/img/empty_cover.jpg' %}" alt="book image">
               <span class="storefront_book_title">{{ book.title }}</span>
               <span class="storefront_book_author">{{ book.author }}</span>
               </a>
               {% if request.user.is_authenticated %}
-              <span class="storefront_add_to_cart">
-                <a href="{% url 'add_to_cart' book.id %}">[Add To Cart]</a>
-              </span>
+             
               {% endif %}
             </div>
             {% endfor %}

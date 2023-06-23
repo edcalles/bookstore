@@ -10,13 +10,10 @@ def index(request):
     return render(request, 'template.html')
 
 def store(request):
-    count = Book.objects.all().count()
+    books = Book.objects.all()
     context = {
-        'count': count,
+        'books': books,
     }
-    request.session['location'] = "unknown"
-    if request.user.is_authenticated:
-        request.session['location'] = "Earth"
     return render(request, 'store.html', context)
 
 def login(request):
